@@ -52,7 +52,7 @@ export default class ApplicationPage extends React.Component{
             }
 
             <p>
-                <label htmlFor="progress">speed : </label><input id="progress" type="text" style={{width:100}} onKeyUp={::this.setProgress} />
+                <label htmlFor="progress">progress : </label><input id="progress" type="text" style={{width:100}} onKeyUp={::this.setProgress} />
             </p>
             <p>
                 <label htmlFor="trickle">trickle:</label> <input id="trickle" type="checkbox" checked={this.state.trickle} onChange={::this.toggleTrickle} />
