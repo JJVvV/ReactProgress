@@ -2,7 +2,7 @@
 
 a progress bar for React. Inspired by YouTube, [nprogress](https://github.com/rstacruz/nprogress).
 
-
+[demo](http://jjvvv.github.io/ReactProgress/progress.html)
 
 ##Installation
 
