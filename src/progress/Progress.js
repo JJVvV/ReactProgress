@@ -18,11 +18,11 @@ const TIMEOUT = 300;
 export default class Progress extends React.Component{
 
     static defaultProps = {
-        spinner: false,
+        spinner: true,
         progress: 0,
         trickle: true,
         trickleRate: 0.02,
-        trickleSpeed: 800
+        trickleSpeed: 400
     }
 
     state = {
@@ -37,7 +37,7 @@ export default class Progress extends React.Component{
     componentWillReceiveProps(props){
 
         this.clearTimer();
-        let progress = props.done ? 1 : +props.progress;
+        let progress = +props.progress;
         this.set(progress);
 
 
@@ -62,11 +62,7 @@ export default class Progress extends React.Component{
     componentWillUnmount() {
         this.clearTimer();
         ReactDOM.unmountComponentAtNode(this.progressWrapper);
-        try {
-            this.progressWrapper.parentNode.removeChild(this.progressWrapper);
-        } catch (e) {
-
-        }
+        this.progressWrapper.parentNode.removeChild(this.progressWrapper);
     }
 
     componentDidMount(){
@@ -141,10 +137,11 @@ export default class Progress extends React.Component{
         this.setState({
             progress: null
         }, () => {
+
             // waiting until the progress transitionLeave animation is done;
             this.unmountTimer = setTimeout(() => {
                 ReactDOM.unmountComponentAtNode(this.progressWrapper);
-            }, TIMEOUT + 200);
+            }, TIMEOUT + 300);
         });
 
 

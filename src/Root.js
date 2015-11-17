@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-
 import Progress from './progress/Progress';
 
 
@@ -17,14 +16,11 @@ export default class ApplicationPage extends React.Component{
   constructor(){
     super();
   }
-
     state = {
         spinner: true,
         trickle: true,
         show: true,
-        done: false
     }
-
     componentDidMount(){
         setTimeout(() => {
             this.setState({
@@ -45,22 +41,30 @@ export default class ApplicationPage extends React.Component{
             {
                 this.state.show &&
                 <Progress
+                    ref="progress"
                     spinner={this.state.spinner}
                     progress={this.state.progress}
                     trickle={this.state.trickle}
-                    trickleTimer={900}
-                    done={this.state.done}
-                    progress={this.state.progress}
+                    trickleRate={0.02}
+                    trickleSpeed={400}
+                    spinner={this.state.spinner}
                 />
             }
 
-            <input type="text" style={{marginTop:100,marginLeft:20, width:100}} onKeyUp={::this.setProgress} /><br />
-            trickle:<input type="radio" name="trickle"  checked={this.state.trickle} onChange={this.onChange.bind(this, true)} /><br />
-            not trickle:<input type="radio" name="trickle" checked={!this.state.trickle} onChange={this.onChange.bind(this, false)} /><br />
-            <p><button className="btn" onClick={::this.done}></button> : done => progress == 1</p>
             <p>
-                <button className="btn" onClick={::this.done1}></button> : toggle done
+                <label htmlFor="progress">speed : </label><input id="progress" type="text" style={{width:100}} onKeyUp={::this.setProgress} />
             </p>
+            <p>
+                <label htmlFor="trickle">trickle:</label> <input id="trickle" type="checkbox" checked={this.state.trickle} onChange={::this.toggleTrickle} />
+            </p>
+            <p>
+                <label htmlFor="spinner">spinner:</label> <input id="spinner" type="checkbox" checked={this.state.spinner} onChange={::this.toggleSpinner} />
+            </p>
+
+            <p>
+                <label>done:</label> <button className="btn" onClick={::this.done}></button>
+            </p>
+
         </div>
     );
   }
@@ -71,18 +75,23 @@ export default class ApplicationPage extends React.Component{
         });
     }
 
-    done1(){
+
+
+    toggleTrickle(e){
+
         this.setState({
-            done: !this.state.done
+            trickle: !this.state.trickle,
+            progress: this.refs.progress.state.progress
         });
     }
 
-    onChange(value, e){
-
+    toggleSpinner(){
         this.setState({
-            trickle: value
+            spinner: !this.state.spinner,
+            progress: this.refs.progress.state.progress
         });
     }
+
     setProgress(e){
         let value;
         if(e.which === 13){

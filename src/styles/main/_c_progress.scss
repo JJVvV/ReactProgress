@@ -23,7 +23,7 @@ $green-base: #9abaab !default;
         content: '';
         position:absolute;
         height:100%;
-        box-shadow: 1px 0 6px 1px lighten($red-base, 20%);
+        box-shadow: 1px 0 3px 1px lighten($red-base, 20%);
         border-radius: 100%;
         animation: pulse 2s ease-out 0s infinite;
       }
@@ -130,6 +130,7 @@ $green-base: #9abaab !default;
   color:#fff;
   border:0;
   outline:none;
+  border-radius: 2px;
   &:after{
     content: '\25b6';
   }
