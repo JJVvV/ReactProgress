@@ -1,6 +1,6 @@
 # ReactProgress
 
-a progress bar for React. Inspired by YouTube, (nprogress)[https://github.com/rstacruz/nprogress].
+a progress bar for React. Inspired by YouTube, [nprogress](https://github.com/rstacruz/nprogress).
 
 
 
