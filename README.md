@@ -11,9 +11,9 @@ a progress bar for React. Inspired by YouTube, [nprogress](https://github.com/rs
 npm install
 npm start
 gulp
-
 ```
-Add [main.css] to your project.
+
+Add main.css to your project.
 
 ```html
 <link rel='stylesheet' href='main.css'/>
@@ -42,11 +42,11 @@ var Root = React.createClass({
 
 ### Props
 
-* progress (0.2), the percentage of the progress bar (0<= progress <=1)
+* progress (0.2), the percentage of the progress bar. (0<= progress <=1)
 * spinner (true), turn off loading spinner by setting it to false. (default: true)
 * trickle (true), turn off the automatic incrementing behavior by setting this to false. (default: true)
 * trickleRate (0.02) , how much to increase per trickle (default: 0.02)
-* trickleSpeed (400), how often to trickle (default: 400)
+* trickleSpeed (400), how often to trickle. (default: 400)
 
 ## License
 
