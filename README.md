@@ -4,7 +4,6 @@ a progress bar for React. Inspired by YouTube, [nprogress](https://github.com/rs
 
 
 
-
 ##Installation
 
 ```
